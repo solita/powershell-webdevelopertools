@@ -11,7 +11,7 @@ $features = @(
 	"IIS-NetFxExtensibility" 
 	"IIS-ASPNET"
 )
-foreach ($task in $tasks) {
+foreach ($task in $features) {
 	Enable-WindowsOptionalFeature -Online -FeatureName $task
 }
 
