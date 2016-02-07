@@ -30,14 +30,16 @@ $wdeployUser = $config.Root.IIS.WebDeploy.GetAttribute("Name")
 $wdeployPw = $config.Root.IIS.WebDeploy.GetAttribute("Password")
 foreach($webSite in $config.Root.IIS.Website )
 {
-	# Clean old shit
+	# Clean old stuff
 	Remove-DefaultSiteAndGivenSite $webSite.GetAttribute("SiteName")
 	# Construct binding array
 	[array]$siteBindings = @()
 	$webSite.Binding | % { $siteBindings += $_.GetAttribute("Hostname")	}
-	# Create phsyical so
+	# Create physical folder for website
 	Set-FolderIfNeeded $webSite.GetAttribute("PhysicalPath")
+	# Create the website
 	Set-WebSiteWithDefaults $webSite.GetAttribute("SiteName") $webSite.GetAttribute("AppPoolName") $webSite.GetAttribute("AppPoolRestartTime") $webSite.GetAttribute("PhysicalPath") $siteBindings
+	# Configure webdeployment for website
 	Initialize-WebDeployWithConfiguration $webSite.GetAttribute("SiteName") $webSite.GetAttribute("AppPoolName") $wdeployUser $wdeployPw 
 }
 
