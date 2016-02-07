@@ -14,3 +14,8 @@ Functionalities that can be found at this repository
 - Create a new IIS website, application pool and bindings
 - Install certificates for website usage
 - Test that machine is ready to run website in IIS
+- Installing stuff with WebPI
+
+### server specific:
+- Enabling windows features
+- Installing stuff silently with exe and msi files
