@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+	<InstallationTempFolder>C:\Installation\</InstallationTempFolder>
+	<WindowsFeatures>
+		<Feature Name="NetFx4"/>
+		<Feature Name="NetFx4Extended-ASPNET45"/>
+		<Feature Name="NetFx4ServerFeatures"/>
+		<Feature Name="WCF-Services45"/>
+		<Feature Name="WAS-WindowsActivationService"/>
+		<Feature Name="AS-NET-Framework"/>
+		<Feature Name="IIS-WebServerRole"/>
+		<Feature Name="IIS-WebServer"/>
+		<Feature Name="IIS-ManagementConsole"/>
+		<Feature Name="IIS-ManagementService"/>
+		<Feature Name="IIS-WebServerManagementTools"/>
+		<Feature Name="IIS-HealthAndDiagnostics"/>
+		<Feature Name="IIS-ISAPIFilter"/>
+		<Feature Name="IIS-ISAPIExtensions"/>
+		<Feature Name="IIS-CustomLogging"/>
+		<Feature Name="IIS-HttpTracing"/>
+		<Feature Name="IIS-BasicAuthentication"/>
+		<Feature Name="IIS-ApplicationDevelopment"/>
+		<Feature Name="IIS-NetFxExtensibility"/>
+		<Feature Name="IIS-ASPNET45"/>
+	</WindowsFeatures>
+	<Installers>
+		<Installer File="webpi50.msi" Url="http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi"/>
+	</Installers>
+	<Executables>
+		<Executable File="dotnet.exe" Url="https://download.microsoft.com/download/E/4/1/E4173890-A24A-4936-9FC9-AF930FE3FA40/NDP461-KB3102436-x86-x64-AllOS-ENU.exe"/>
+		<Executable File="npp.exe" Url="https://notepad-plus-plus.org/repository/6.x/6.8.8/npp.6.8.8.Installer.exe"/>
+		<Executable File="7zip.exe" Url="http://www.7-zip.org/a/7z1514-x64.exe"/>
+	</Executables>
+	<WebPiFeatures>
+		<Feature Name="WDeploy36NoSmo"/>
+		<Feature Name="AdvancedLogging"/>
+		<Feature Name="LoggingTools"/>
+		<Feature Name="WebSockets"/>
+		<Feature Name="UrlRewrite2"/>
+	</WebPiFeatures>
+	<IIS>
+		<WebDeploy Name="episerverwdeploy" Password="ChangeMe"/>
+		<WebSite SiteName="Episerver" PhysicalPath="C:\Sites\Episerver" AppPoolName="Episerver" AppPoolRestartTime="03:00:00">
+			<Binding Hostname="episerver.fi"/>
+		</WebSite>
+    </IIS>
+</Root>
